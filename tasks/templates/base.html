@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB, #FFB6C1, #FFD700);
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+
+        /* Header Styles */
+        h1 {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            background: linear-gradient(45deg, #87CEEB, #FFB6C1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            background: linear-gradient(45deg, #FFB6C1, #FFD700);
+        }
+
+        /* Table Styles */
+        .task-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .task-table th,
+        .task-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .task-table th {
+            background: #87CEEB;
+            color: white;
+            font-weight: 600;
+        }
+
+        .task-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .task-table tr:hover {
+            background-color: #fff0f5;
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FFB6C1;
+            box-shadow: 0 0 10px rgba(255,182,193,0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #87CEEB, #FFB6C1);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 750px) {
+            .task-table {
+                font-size: 14px;
+            }
+            
+            .nav-link {
+                padding: 10px 20px;
+                margin: 5px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            body {
+                padding: 10px;
+            }
+            
+            .nav-link {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            .task-table th,
+            .task-table td {
+                padding: 10px;
+            }
+            
+            .form-input {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ Task Manager ✨</h1>
+    <nav>
+        <a href="{% url 'add_task' %}" class="nav-link">➕ Add Task</a>
+        <a href="{% url 'view_all_tasks' %}" class="nav-link">📋 View All Tasks</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
